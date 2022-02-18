@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacturacionP5_EdisonCV", "FacturacionP5_EdisonCV\FacturacionP5_EdisonCV.csproj", "{C8066609-4F9C-437E-8354-310013455F5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{A792DB97-F46D-4375-8639-134D77D8AA94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8066609-4F9C-437E-8354-310013455F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8066609-4F9C-437E-8354-310013455F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8066609-4F9C-437E-8354-310013455F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8066609-4F9C-437E-8354-310013455F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A792DB97-F46D-4375-8639-134D77D8AA94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A792DB97-F46D-4375-8639-134D77D8AA94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A792DB97-F46D-4375-8639-134D77D8AA94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A792DB97-F46D-4375-8639-134D77D8AA94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D83302DD-FF16-44D3-8ACD-D23B41D4C4A8}
+	EndGlobalSection
+EndGlobal
