@@ -37,6 +37,9 @@ public class Usuario
 
             //Aqui debemos instanciar MiTipo
             MiRol = new UsuarioRol();
+
+
+
     }
 
    
@@ -51,6 +54,7 @@ public class Usuario
         Cedula = pCedula;   
 
         return R;
+
     }
 
     public bool Editar(int pIDUsuario, String pNombre, String pNombreUsuario, String pTelefono, String pCorreoDeRespaldo, string pContrasennia, string pCedula)
