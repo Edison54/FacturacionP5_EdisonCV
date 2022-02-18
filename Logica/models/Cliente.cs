@@ -47,6 +47,7 @@ namespace Logica.models
             Email = pEmail;
 
             return R;
+
         }
 
         public bool Editar(int pIDCliente, String pNombre, String pCedula, String pTelefono = "", String pEmail = "")
