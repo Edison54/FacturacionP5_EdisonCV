@@ -105,7 +105,7 @@ public class Usuario
         return R;
     }
 
-    public DataTable ListarActivos(bool verActivos = true)
+    public DataTable ListarActivos(bool VerActivos = true)
     {
         DataTable R = new DataTable();
 
@@ -116,7 +116,7 @@ public class Usuario
         return R;
 
     }
-    public DataTable ListarInactivos(bool verActivos = false)
+    public DataTable ListarInactivos(bool VerActivos = false)
     {
         DataTable R = new DataTable();
 
