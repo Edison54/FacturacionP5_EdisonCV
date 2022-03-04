@@ -19,7 +19,11 @@ namespace FacturacionP5_EdisonCV.Formularios
 
         private void gestioDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if(!ObjetosGlobales.MiFormDeGestionDeUsuarios.Visible)
+            {
+                ObjetosGlobales.MiFormDeGestionDeUsuarios = new FrmUsuariosGestion();
+                ObjetosGlobales.MiFormDeGestionDeUsuarios.Show();
+            }
         }
 
         private void listadoUsuariosToolStripMenuItem_Click(object sender, EventArgs e)

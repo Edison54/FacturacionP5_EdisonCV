@@ -86,6 +86,8 @@ namespace Logica
                 }
                 else
                 {
+
+                    //paso 1.3.1 y 1..3.2
                     MyAdaptador.Fill(Retorno);
                 }
             }
