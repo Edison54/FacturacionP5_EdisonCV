@@ -21,7 +21,8 @@ namespace Logica.models
         {
             DataTable R = new DataTable();
 
-
+            Conexion MiCnn = new Conexion();
+            R = MiCnn.EjecutarSelect("SpUsuarioRolListar");
 
 
             //datos necesarios

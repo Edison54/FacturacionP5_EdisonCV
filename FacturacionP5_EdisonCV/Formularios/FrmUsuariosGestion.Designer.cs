@@ -29,7 +29,29 @@
         private void InitializeComponent()
         {
             this.DgbListaUsuarios = new System.Windows.Forms.DataGridView();
+            this.CIDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.CboxTipoUsuario = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TxtTelefono = new System.Windows.Forms.TextBox();
+            this.TxtPassword = new System.Windows.Forms.TextBox();
+            this.TxtEmailRespaldo = new System.Windows.Forms.TextBox();
+            this.TxtCedula = new System.Windows.Forms.TextBox();
+            this.TxtEmail = new System.Windows.Forms.TextBox();
+            this.TxtNombre = new System.Windows.Forms.TextBox();
+            this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
@@ -38,28 +60,6 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiarFormulario = new System.Windows.Forms.Button();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.TxtCodigo = new System.Windows.Forms.TextBox();
-            this.TxtNombre = new System.Windows.Forms.TextBox();
-            this.TxtEmail = new System.Windows.Forms.TextBox();
-            this.TxtCedula = new System.Windows.Forms.TextBox();
-            this.TxtEmailRespaldo = new System.Windows.Forms.TextBox();
-            this.TxtContraseña = new System.Windows.Forms.TextBox();
-            this.TxtTelefono = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.CboxTipoUsuario = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.CIDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgbListaUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +85,46 @@
             this.DgbListaUsuarios.TabIndex = 0;
             this.DgbListaUsuarios.VirtualMode = true;
             this.DgbListaUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.DgbListaUsuarios.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgbListaUsuarios_DataBindingComplete);
+            // 
+            // CIDUsuario
+            // 
+            this.CIDUsuario.DataPropertyName = "IDUsuario";
+            this.CIDUsuario.HeaderText = "Codigo Usuario";
+            this.CIDUsuario.Name = "CIDUsuario";
+            this.CIDUsuario.ReadOnly = true;
+            // 
+            // CNombre
+            // 
+            this.CNombre.DataPropertyName = "Nombre";
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            this.CNombre.Width = 193;
+            // 
+            // CEmail
+            // 
+            this.CEmail.DataPropertyName = "NombreUsuario";
+            this.CEmail.HeaderText = "Email";
+            this.CEmail.Name = "CEmail";
+            this.CEmail.ReadOnly = true;
+            this.CEmail.Width = 200;
+            // 
+            // CCedula
+            // 
+            this.CCedula.DataPropertyName = "Cedula";
+            this.CCedula.HeaderText = "Cedula";
+            this.CCedula.Name = "CCedula";
+            this.CCedula.ReadOnly = true;
+            this.CCedula.Width = 170;
+            // 
+            // CRol
+            // 
+            this.CRol.DataPropertyName = "Rol";
+            this.CRol.HeaderText = "Tipo de usuario";
+            this.CRol.Name = "CRol";
+            this.CRol.ReadOnly = true;
+            this.CRol.Width = 110;
             // 
             // groupBox1
             // 
@@ -92,7 +132,7 @@
             this.groupBox1.Controls.Add(this.CboxTipoUsuario);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.TxtTelefono);
-            this.groupBox1.Controls.Add(this.TxtContraseña);
+            this.groupBox1.Controls.Add(this.TxtPassword);
             this.groupBox1.Controls.Add(this.TxtEmailRespaldo);
             this.groupBox1.Controls.Add(this.TxtCedula);
             this.groupBox1.Controls.Add(this.TxtEmail);
@@ -112,6 +152,150 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles del usuario";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(24, 117);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Nombre";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // CboxTipoUsuario
+            // 
+            this.CboxTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboxTipoUsuario.FormattingEnabled = true;
+            this.CboxTipoUsuario.Location = new System.Drawing.Point(475, 186);
+            this.CboxTipoUsuario.Name = "CboxTipoUsuario";
+            this.CboxTipoUsuario.Size = new System.Drawing.Size(248, 21);
+            this.CboxTipoUsuario.TabIndex = 15;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(392, 186);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(83, 13);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Tipo de usuario ";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // TxtTelefono
+            // 
+            this.TxtTelefono.Location = new System.Drawing.Point(473, 83);
+            this.TxtTelefono.Name = "TxtTelefono";
+            this.TxtTelefono.Size = new System.Drawing.Size(250, 20);
+            this.TxtTelefono.TabIndex = 13;
+            // 
+            // TxtPassword
+            // 
+            this.TxtPassword.Location = new System.Drawing.Point(473, 151);
+            this.TxtPassword.Name = "TxtPassword";
+            this.TxtPassword.Size = new System.Drawing.Size(208, 20);
+            this.TxtPassword.TabIndex = 12;
+            this.TxtPassword.UseSystemPasswordChar = true;
+            // 
+            // TxtEmailRespaldo
+            // 
+            this.TxtEmailRespaldo.Location = new System.Drawing.Point(473, 120);
+            this.TxtEmailRespaldo.Name = "TxtEmailRespaldo";
+            this.TxtEmailRespaldo.Size = new System.Drawing.Size(250, 20);
+            this.TxtEmailRespaldo.TabIndex = 11;
+            // 
+            // TxtCedula
+            // 
+            this.TxtCedula.Location = new System.Drawing.Point(89, 186);
+            this.TxtCedula.Name = "TxtCedula";
+            this.TxtCedula.Size = new System.Drawing.Size(250, 20);
+            this.TxtCedula.TabIndex = 10;
+            // 
+            // TxtEmail
+            // 
+            this.TxtEmail.Location = new System.Drawing.Point(89, 149);
+            this.TxtEmail.Name = "TxtEmail";
+            this.TxtEmail.Size = new System.Drawing.Size(250, 20);
+            this.TxtEmail.TabIndex = 9;
+            // 
+            // TxtNombre
+            // 
+            this.TxtNombre.Location = new System.Drawing.Point(89, 117);
+            this.TxtNombre.Name = "TxtNombre";
+            this.TxtNombre.Size = new System.Drawing.Size(250, 20);
+            this.TxtNombre.TabIndex = 8;
+            // 
+            // TxtCodigo
+            // 
+            this.TxtCodigo.Enabled = false;
+            this.TxtCodigo.Location = new System.Drawing.Point(89, 80);
+            this.TxtCodigo.Name = "TxtCodigo";
+            this.TxtCodigo.Size = new System.Drawing.Size(146, 20);
+            this.TxtCodigo.TabIndex = 7;
+            this.TxtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(414, 83);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Telefono";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(406, 151);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Contraseña";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(377, 120);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Email de respaldo";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(30, 186);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Cedula";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 149);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Email";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(30, 120);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Codigo";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // BtnAgregar
             // 
             this.BtnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -124,6 +308,7 @@
             this.BtnAgregar.TabIndex = 2;
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // label1
             // 
@@ -211,189 +396,6 @@
             this.BtnCerrar.UseVisualStyleBackColor = false;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Codigo";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 120);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 13);
-            this.label3.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 149);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Email";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 186);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Cedula";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(377, 120);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Email de respaldo";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(406, 151);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Contraseña";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(414, 83);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 13);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Telefono";
-            // 
-            // TxtCodigo
-            // 
-            this.TxtCodigo.Enabled = false;
-            this.TxtCodigo.Location = new System.Drawing.Point(89, 80);
-            this.TxtCodigo.Name = "TxtCodigo";
-            this.TxtCodigo.Size = new System.Drawing.Size(146, 20);
-            this.TxtCodigo.TabIndex = 7;
-            this.TxtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TxtNombre
-            // 
-            this.TxtNombre.Location = new System.Drawing.Point(89, 117);
-            this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(250, 20);
-            this.TxtNombre.TabIndex = 8;
-            // 
-            // TxtEmail
-            // 
-            this.TxtEmail.Location = new System.Drawing.Point(89, 149);
-            this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(250, 20);
-            this.TxtEmail.TabIndex = 9;
-            // 
-            // TxtCedula
-            // 
-            this.TxtCedula.Location = new System.Drawing.Point(89, 186);
-            this.TxtCedula.Name = "TxtCedula";
-            this.TxtCedula.Size = new System.Drawing.Size(250, 20);
-            this.TxtCedula.TabIndex = 10;
-            // 
-            // TxtEmailRespaldo
-            // 
-            this.TxtEmailRespaldo.Location = new System.Drawing.Point(473, 120);
-            this.TxtEmailRespaldo.Name = "TxtEmailRespaldo";
-            this.TxtEmailRespaldo.Size = new System.Drawing.Size(250, 20);
-            this.TxtEmailRespaldo.TabIndex = 11;
-            // 
-            // TxtContraseña
-            // 
-            this.TxtContraseña.Location = new System.Drawing.Point(473, 151);
-            this.TxtContraseña.Name = "TxtContraseña";
-            this.TxtContraseña.Size = new System.Drawing.Size(208, 20);
-            this.TxtContraseña.TabIndex = 12;
-            this.TxtContraseña.UseSystemPasswordChar = true;
-            // 
-            // TxtTelefono
-            // 
-            this.TxtTelefono.Location = new System.Drawing.Point(473, 83);
-            this.TxtTelefono.Name = "TxtTelefono";
-            this.TxtTelefono.Size = new System.Drawing.Size(250, 20);
-            this.TxtTelefono.TabIndex = 13;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(392, 186);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 13);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Tipo de usuario ";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // CboxTipoUsuario
-            // 
-            this.CboxTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboxTipoUsuario.FormattingEnabled = true;
-            this.CboxTipoUsuario.Location = new System.Drawing.Point(475, 186);
-            this.CboxTipoUsuario.Name = "CboxTipoUsuario";
-            this.CboxTipoUsuario.Size = new System.Drawing.Size(248, 21);
-            this.CboxTipoUsuario.TabIndex = 15;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(24, 117);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Nombre";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // CIDUsuario
-            // 
-            this.CIDUsuario.DataPropertyName = "IDUsuario";
-            this.CIDUsuario.HeaderText = "Codigo Usuario";
-            this.CIDUsuario.Name = "CIDUsuario";
-            this.CIDUsuario.ReadOnly = true;
-            // 
-            // CNombre
-            // 
-            this.CNombre.DataPropertyName = "Nombre";
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.ReadOnly = true;
-            this.CNombre.Width = 193;
-            // 
-            // CEmail
-            // 
-            this.CEmail.DataPropertyName = "NombreUsuario";
-            this.CEmail.HeaderText = "Email";
-            this.CEmail.Name = "CEmail";
-            this.CEmail.ReadOnly = true;
-            this.CEmail.Width = 200;
-            // 
-            // CCedula
-            // 
-            this.CCedula.DataPropertyName = "Cedula";
-            this.CCedula.HeaderText = "Cedula";
-            this.CCedula.Name = "CCedula";
-            this.CCedula.ReadOnly = true;
-            this.CCedula.Width = 170;
-            // 
-            // CRol
-            // 
-            this.CRol.DataPropertyName = "Rol";
-            this.CRol.HeaderText = "Tipo de usuario";
-            this.CRol.Name = "CRol";
-            this.CRol.ReadOnly = true;
-            this.CRol.Width = 110;
-            // 
             // FrmUsuariosGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,7 +439,7 @@
         private System.Windows.Forms.ComboBox CboxTipoUsuario;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TxtTelefono;
-        private System.Windows.Forms.TextBox TxtContraseña;
+        private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.TextBox TxtEmailRespaldo;
         private System.Windows.Forms.TextBox TxtCedula;
         private System.Windows.Forms.TextBox TxtEmail;
