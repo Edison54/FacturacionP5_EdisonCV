@@ -84,6 +84,7 @@
             this.DgbListaUsuarios.Size = new System.Drawing.Size(776, 206);
             this.DgbListaUsuarios.TabIndex = 0;
             this.DgbListaUsuarios.VirtualMode = true;
+            this.DgbListaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgbListaUsuarios_CellClick);
             this.DgbListaUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.DgbListaUsuarios.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgbListaUsuarios_DataBindingComplete);
             // 
@@ -160,7 +161,6 @@
             this.label10.Size = new System.Drawing.Size(44, 13);
             this.label10.TabIndex = 16;
             this.label10.Text = "Nombre";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // CboxTipoUsuario
             // 
@@ -179,7 +179,6 @@
             this.label9.Size = new System.Drawing.Size(83, 13);
             this.label9.TabIndex = 14;
             this.label9.Text = "Tipo de usuario ";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // TxtTelefono
             // 
@@ -187,6 +186,7 @@
             this.TxtTelefono.Name = "TxtTelefono";
             this.TxtTelefono.Size = new System.Drawing.Size(250, 20);
             this.TxtTelefono.TabIndex = 13;
+            this.TxtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTelefono_KeyPress);
             // 
             // TxtPassword
             // 
@@ -195,6 +195,7 @@
             this.TxtPassword.Size = new System.Drawing.Size(208, 20);
             this.TxtPassword.TabIndex = 12;
             this.TxtPassword.UseSystemPasswordChar = true;
+            this.TxtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPassword_KeyPress);
             // 
             // TxtEmailRespaldo
             // 
@@ -202,6 +203,7 @@
             this.TxtEmailRespaldo.Name = "TxtEmailRespaldo";
             this.TxtEmailRespaldo.Size = new System.Drawing.Size(250, 20);
             this.TxtEmailRespaldo.TabIndex = 11;
+            this.TxtEmailRespaldo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmailRespaldo_KeyPress);
             // 
             // TxtCedula
             // 
@@ -209,6 +211,7 @@
             this.TxtCedula.Name = "TxtCedula";
             this.TxtCedula.Size = new System.Drawing.Size(250, 20);
             this.TxtCedula.TabIndex = 10;
+            this.TxtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCedula_KeyPress);
             // 
             // TxtEmail
             // 
@@ -216,6 +219,7 @@
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(250, 20);
             this.TxtEmail.TabIndex = 9;
+            this.TxtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmail_KeyPress);
             // 
             // TxtNombre
             // 
@@ -223,6 +227,8 @@
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(250, 20);
             this.TxtNombre.TabIndex = 8;
+            this.TxtNombre.TextChanged += new System.EventHandler(this.TxtNombre_TextChanged);
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
             // TxtCodigo
             // 
@@ -294,7 +300,6 @@
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Codigo";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // BtnAgregar
             // 
@@ -381,6 +386,7 @@
             this.BtnLimpiarFormulario.TabIndex = 8;
             this.BtnLimpiarFormulario.Text = "LimpiarFormulario";
             this.BtnLimpiarFormulario.UseVisualStyleBackColor = false;
+            this.BtnLimpiarFormulario.Click += new System.EventHandler(this.BtnLimpiarFormulario_Click);
             // 
             // BtnCerrar
             // 
@@ -394,7 +400,6 @@
             this.BtnCerrar.TabIndex = 9;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // FrmUsuariosGestion
             // 

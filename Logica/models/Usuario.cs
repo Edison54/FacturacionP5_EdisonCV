@@ -51,12 +51,14 @@ public class Usuario
             //paso 1.6.1 y 1.6.2
             Conexion MiCnn3 = new Conexion();
 
-            //aplicar mecanismo de ecripcion para las contra
+            Encriptador MiEncriptador = new Encriptador();
+            string PassWordEncriptado = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);
+
             MiCnn3.ListaParametros.Add(new SqlParameter("@Nombre", this.Nombre));
             MiCnn3.ListaParametros.Add(new SqlParameter("@Email", this.NombreUsuario));
             MiCnn3.ListaParametros.Add(new SqlParameter("@Telefono", this.Telefono));
             MiCnn3.ListaParametros.Add(new SqlParameter("@CorreoRespaldo", this.CorreoDeRespaldo));
-            MiCnn3.ListaParametros.Add(new SqlParameter("@Contrasennia", this.Contrasennia));
+            MiCnn3.ListaParametros.Add(new SqlParameter("@Contrasennia", PassWordEncriptado));
             MiCnn3.ListaParametros.Add(new SqlParameter("@Cedula", this.Cedula));
             MiCnn3.ListaParametros.Add(new SqlParameter("@IdRolUsuario", this.MiRol.IDUsuarioRol));
             //paso 1.6.3 y 1.6.4
@@ -140,8 +142,42 @@ public class Usuario
 
         return R;
     }
+        public Usuario ConsultarPorID(int pIdUsuario)
+        {
 
-    public DataTable ListarActivos(bool VerActivos = true)
+            Usuario R = new Usuario();
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaParametros.Add(new SqlParameter("@id", pIdUsuario));
+            DataTable DatosDeUsuario = new DataTable();
+
+            DatosDeUsuario = MyCnn.EjecutarSelect("SpUsuariosConsultarPorID");
+
+
+            if(DatosDeUsuario != null && DatosDeUsuario.Rows.Count > 0)
+            {
+                DataRow MisDatos = DatosDeUsuario.Rows[0];
+
+                R.IDUsuario = Convert.ToInt32( MisDatos["IDUsuario"]);
+                R.Nombre = Convert.ToString(MisDatos["Nombre"]);
+                R.NombreUsuario = Convert.ToString(MisDatos["NombreUsuario"]);
+                R.Cedula = Convert.ToString(MisDatos["Cedula"]);
+                R.Telefono = Convert.ToString(MisDatos["Telefono"]);
+                R.CorreoDeRespaldo = Convert.ToString(MisDatos["CorreoDeRespaldo"]);
+                R.Contrasennia = Convert.ToString(MisDatos["Contrasennia"]);
+                R.Activo = Convert.ToBoolean(MisDatos["Activo"]);
+
+
+                R.MiRol.IDUsuarioRol = Convert.ToInt32(MisDatos["IDUsuarioRol"]);
+                R.MiRol.Rol = Convert.ToString(MisDatos["Rol"]);
+
+            }
+            return R;
+        }
+
+
+
+        public DataTable ListarActivos(bool VerActivos = true)
     {
         DataTable R = new DataTable();
 
