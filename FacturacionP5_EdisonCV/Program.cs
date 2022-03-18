@@ -17,6 +17,8 @@ namespace FacturacionP5_EdisonCV
             Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(ObjetosGlobales.MiFormularioPrincipal);
+
+
         }
     }
 }
