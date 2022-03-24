@@ -195,7 +195,7 @@
             this.TxtPassword.Size = new System.Drawing.Size(208, 20);
             this.TxtPassword.TabIndex = 12;
             this.TxtPassword.UseSystemPasswordChar = true;
-            this.TxtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPassword_KeyPress);
+           
             // 
             // TxtEmailRespaldo
             // 
@@ -219,6 +219,7 @@
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(250, 20);
             this.TxtEmail.TabIndex = 9;
+            
             this.TxtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmail_KeyPress);
             // 
             // TxtNombre

@@ -109,6 +109,26 @@ namespace FacturacionP5_EdisonCV.Formularios
 
         }
 
+        private void LimpiarEmails()
+        {
+            //Metodo que elimina limpia todos los datos del form
+            
+            TxtEmail.Clear();
+           
+            TxtEmailRespaldo.Clear();
+          
+
+        }
+
+        private void Limpiarpassword()
+        {
+            //Metodo que elimina limpia todos los datos del form
+
+            TxtPassword.Clear();
+
+
+        }
+
         private bool ValidarDatosRequeridos()
 
          {
@@ -201,6 +221,7 @@ namespace FacturacionP5_EdisonCV.Formularios
             //Datos minimos y de tipos y extenciones correctas para cada equipo
            if(ValidarDatosRequeridos())
             { 
+
                 string Pregunta = string.Format("Esta seguro de agregar el usuario {0}" , TxtNombre.Text.Trim());
                 DialogResult RespuestaDelUsuario = MessageBox.Show(Pregunta, "???", MessageBoxButtons.YesNo);
 
@@ -226,19 +247,37 @@ namespace FacturacionP5_EdisonCV.Formularios
 
                     if (!A && !B)
                     {
-                        //PASO 1.6 , 1.6.6 Y 1.7
-                        if (MiUsuarioLocal.Agregar())
+                        if(!Validacion.IsValidEmail(MiUsuarioLocal.NombreUsuario) && !Validacion.IsValidEmail(MiUsuarioLocal.CorreoDeRespaldo))
                         {
-                            MessageBox.Show("Usuario creado correctamente", " !!!!!", MessageBoxButtons.OK);
-                            
+                             MessageBox.Show("Los 2 emails deben tener un formato correcto", " !!!!!", MessageBoxButtons.OK);
+                            LimpiarEmails();
 
                         }
                         else
                         {
-                            MessageBox.Show("Hubo un error y no pudo guardarse", " :C", MessageBoxButtons.OK);
+                            if (!Validacion.ValidatePassword(MiUsuarioLocal.Contrasennia)) {
+                                MessageBox.Show("La contraseña debe tener Letras mayusculas, minusculas,numerosa enteros y caracteres especiales", " !!!!!", MessageBoxButtons.OK);
+                                Limpiarpassword();
+
+
+                            }
+                            else
+                            {
+                                //PASO 1.6 , 1.6.6 Y 1.7
+                                if (MiUsuarioLocal.Agregar())
+                                {
+                                    MessageBox.Show("Usuario creado correctamente", " !!!!!", MessageBoxButtons.OK);
+
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Hubo un error y no pudo guardarse", " :C", MessageBoxButtons.OK);
+                                }
+                                ListarUsuariosActivos();
+                                LimpiarForm();
+                            }
                         }
-                        ListarUsuariosActivos();
-                        LimpiarForm();
                     }
                     else
                     {
@@ -276,7 +315,7 @@ namespace FacturacionP5_EdisonCV.Formularios
 
         private void TxtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = Validacion.CaracteresTexto(e, false,true);
+            e.Handled = Validacion.CaracteresTexto(e);
         }
 
         private void TxtCedula_KeyPress(object sender, KeyPressEventArgs e)
@@ -294,10 +333,7 @@ namespace FacturacionP5_EdisonCV.Formularios
             e.Handled = Validacion.CaracteresTexto(e, false, true);
         }
 
-        private void TxtPassword_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = Validacion.CaracteresNumeros(e);
-        }
+      
 
         private void BtnLimpiarFormulario_Click(object sender, EventArgs e)
         {
@@ -340,5 +376,7 @@ namespace FacturacionP5_EdisonCV.Formularios
 
             }
         }
+
+        
     }
 }
