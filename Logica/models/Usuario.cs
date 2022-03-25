@@ -79,6 +79,44 @@ public class Usuario
 
         bool R = false;
 
+            //Segun el diagrama de casos de uso expandido para la gestion de usuario
+            //para poder editar a un usuario primero debemos ejecutar el caso de uso 
+            //consultar por id
+
+            Usuario usuarioConsulta = new Usuario();
+
+            usuarioConsulta = ConsultarPorID(this.IDUsuario);
+
+            if (usuarioConsulta.IDUsuario > 0) 
+            { 
+
+
+                //ya validamos que si sexixte el usuario
+
+                Conexion MyCnn = new Conexion();
+
+                string PassWordEncriptado = "";
+                if(!string.IsNullOrEmpty(this.Contrasennia))   
+                { 
+                    Encriptador MiEncriptador = new Encriptador();
+
+                    PassWordEncriptado = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);
+                }
+                //agregamos los parametros a editar
+                MyCnn.ListaParametros.Add(new SqlParameter("@id", this.IDUsuario));
+                MyCnn.ListaParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+                MyCnn.ListaParametros.Add(new SqlParameter("@nombreUsuario", this.NombreUsuario));
+                MyCnn.ListaParametros.Add(new SqlParameter("@Telefono", this.Telefono));
+                MyCnn.ListaParametros.Add(new SqlParameter("@correoRespaldo", this.CorreoDeRespaldo));
+                MyCnn.ListaParametros.Add(new SqlParameter("@Contrasennia", PassWordEncriptado));
+                MyCnn.ListaParametros.Add(new SqlParameter("@Cedula", this.Cedula));
+                MyCnn.ListaParametros.Add(new SqlParameter("@idUsuarioRol", this.MiRol.IDUsuarioRol));
+
+                int Resultado = MyCnn.EjecutarUpdateDeleteInsert("SpUsuariosEditar");
+
+
+                if (Resultado > 0) R = true;
+            }
 
         return R;
     }
@@ -88,12 +126,28 @@ public class Usuario
 
 
         bool R = false;
+        Conexion MyCnn = new Conexion();
+        MyCnn.ListaParametros.Add(new SqlParameter("@id", IDUsuario));
 
-
+        if (MyCnn.EjecutarUpdateDeleteInsert("SpUsuariosDesactivar") > 0) R=true;
+         
+    
         return R;
     }
+        public bool Activar()
+        {
 
-    public bool ConsultarPorCedula()
+
+            bool R = false;
+            Conexion MyCnn = new Conexion();
+            MyCnn.ListaParametros.Add(new SqlParameter("@id", IDUsuario));
+
+            if (MyCnn.EjecutarUpdateDeleteInsert("SpUsuariosActivar") > 0) R = true;
+
+
+            return R;
+        }
+        public bool ConsultarPorCedula()
     {
 
 
@@ -196,10 +250,19 @@ public class Usuario
     {
         DataTable R = new DataTable();
 
+            // paso 2.1 y 2.2
+            Conexion MiCnn = new Conexion();
+
+            //paso 2.3 y 2.4
+            R = MiCnn.EjecutarSelect("SpUsuariosListarInactivos");
+
+
+            //datos necesarios
+            return R;
 
 
 
-        //datos necesarios
+            //datos necesarios
             return R;
 
     }

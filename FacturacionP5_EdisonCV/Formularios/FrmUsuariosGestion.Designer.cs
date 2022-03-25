@@ -34,7 +34,7 @@
             this.CEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GbDetalles = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.CboxTipoUsuario = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -60,8 +60,9 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiarFormulario = new System.Windows.Forms.Button();
             this.BtnCerrar = new System.Windows.Forms.Button();
+            this.BtnVerPassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgbListaUsuarios)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.GbDetalles.SuspendLayout();
             this.SuspendLayout();
             // 
             // DgbListaUsuarios
@@ -127,31 +128,32 @@
             this.CRol.ReadOnly = true;
             this.CRol.Width = 110;
             // 
-            // groupBox1
+            // GbDetalles
             // 
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.CboxTipoUsuario);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.TxtTelefono);
-            this.groupBox1.Controls.Add(this.TxtPassword);
-            this.groupBox1.Controls.Add(this.TxtEmailRespaldo);
-            this.groupBox1.Controls.Add(this.TxtCedula);
-            this.groupBox1.Controls.Add(this.TxtEmail);
-            this.groupBox1.Controls.Add(this.TxtNombre);
-            this.groupBox1.Controls.Add(this.TxtCodigo);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 271);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 271);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Detalles del usuario";
+            this.GbDetalles.Controls.Add(this.BtnVerPassword);
+            this.GbDetalles.Controls.Add(this.label10);
+            this.GbDetalles.Controls.Add(this.CboxTipoUsuario);
+            this.GbDetalles.Controls.Add(this.label9);
+            this.GbDetalles.Controls.Add(this.TxtTelefono);
+            this.GbDetalles.Controls.Add(this.TxtPassword);
+            this.GbDetalles.Controls.Add(this.TxtEmailRespaldo);
+            this.GbDetalles.Controls.Add(this.TxtCedula);
+            this.GbDetalles.Controls.Add(this.TxtEmail);
+            this.GbDetalles.Controls.Add(this.TxtNombre);
+            this.GbDetalles.Controls.Add(this.TxtCodigo);
+            this.GbDetalles.Controls.Add(this.label8);
+            this.GbDetalles.Controls.Add(this.label7);
+            this.GbDetalles.Controls.Add(this.label6);
+            this.GbDetalles.Controls.Add(this.label5);
+            this.GbDetalles.Controls.Add(this.label4);
+            this.GbDetalles.Controls.Add(this.label3);
+            this.GbDetalles.Controls.Add(this.label2);
+            this.GbDetalles.Location = new System.Drawing.Point(12, 271);
+            this.GbDetalles.Name = "GbDetalles";
+            this.GbDetalles.Size = new System.Drawing.Size(776, 271);
+            this.GbDetalles.TabIndex = 1;
+            this.GbDetalles.TabStop = false;
+            this.GbDetalles.Text = "Detalles del usuario";
             // 
             // label10
             // 
@@ -195,7 +197,6 @@
             this.TxtPassword.Size = new System.Drawing.Size(208, 20);
             this.TxtPassword.TabIndex = 12;
             this.TxtPassword.UseSystemPasswordChar = true;
-           
             // 
             // TxtEmailRespaldo
             // 
@@ -219,7 +220,6 @@
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(250, 20);
             this.TxtEmail.TabIndex = 9;
-            
             this.TxtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmail_KeyPress);
             // 
             // TxtNombre
@@ -348,6 +348,7 @@
             this.CbVerActivos.TabIndex = 5;
             this.CbVerActivos.Text = "Ver usuarios activos";
             this.CbVerActivos.UseVisualStyleBackColor = true;
+            this.CbVerActivos.CheckedChanged += new System.EventHandler(this.CbVerActivos_CheckedChanged);
             // 
             // BtnEditar
             // 
@@ -361,6 +362,7 @@
             this.BtnEditar.TabIndex = 6;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = false;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // BtnEliminar
             // 
@@ -374,6 +376,7 @@
             this.BtnEliminar.TabIndex = 7;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnLimpiarFormulario
             // 
@@ -402,6 +405,18 @@
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
             // 
+            // BtnVerPassword
+            // 
+            this.BtnVerPassword.Location = new System.Drawing.Point(687, 151);
+            this.BtnVerPassword.Name = "BtnVerPassword";
+            this.BtnVerPassword.Size = new System.Drawing.Size(36, 23);
+            this.BtnVerPassword.TabIndex = 17;
+            this.BtnVerPassword.Text = "Ver";
+            this.BtnVerPassword.UseVisualStyleBackColor = true;
+            this.BtnVerPassword.Click += new System.EventHandler(this.button1_Click);
+            this.BtnVerPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnVerPassword_MouseDown);
+            this.BtnVerPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnVerPassword_MouseUp);
+            // 
             // FrmUsuariosGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,7 +430,7 @@
             this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnAgregar);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.GbDetalles);
             this.Controls.Add(this.DgbListaUsuarios);
             this.MaximizeBox = false;
             this.Name = "FrmUsuariosGestion";
@@ -423,8 +438,8 @@
             this.Text = "Gestion de Usuarios";
             this.Load += new System.EventHandler(this.FrmUsuariosGestion_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.DgbListaUsuarios)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.GbDetalles.ResumeLayout(false);
+            this.GbDetalles.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,7 +448,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DgbListaUsuarios;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox GbDetalles;
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtBuscar;
@@ -464,5 +479,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn CRol;
+        private System.Windows.Forms.Button BtnVerPassword;
     }
 }
