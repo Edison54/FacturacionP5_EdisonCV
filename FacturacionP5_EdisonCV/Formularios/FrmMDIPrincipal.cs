@@ -21,8 +21,9 @@ namespace FacturacionP5_EdisonCV.Formularios
         {
             if (!ObjetosGlobales.MiFormDeGestionDeUsuarios.Visible)
             {
-                ObjetosGlobales.MiFormDeGestionDeUsuarios = new FrmUsuariosGestion();
+                ObjetosGlobales.MiFormDeGestionDeUsuarios= new FrmUsuariosGestion();
                 ObjetosGlobales.MiFormDeGestionDeUsuarios.Show();
+
             }
         }
 
