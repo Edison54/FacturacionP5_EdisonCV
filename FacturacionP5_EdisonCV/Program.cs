@@ -14,9 +14,9 @@ namespace FacturacionP5_EdisonCV
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(ObjetosGlobales.MiFormularioPrincipal);
+           Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Formularios.FrmLogin());
 
 
         }

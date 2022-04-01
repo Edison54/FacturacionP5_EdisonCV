@@ -14,6 +14,8 @@ namespace FacturacionP5_EdisonCV
         //Los atributos y funciones que sean publicas seran
         //totalmente visibles para la aplicacion (Seran globales)
 
+
+        public static Logica.models.Usuario MiUsuarioGlobal = new Logica.models.Usuario();
         public static Form MiFormularioPrincipal = new Formularios.FrmMDIPrincipal();
 
         public static Formularios.FrmUsuariosGestion MiFormDeGestionDeUsuarios = new Formularios.FrmUsuariosGestion();
