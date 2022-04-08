@@ -19,5 +19,7 @@ namespace FacturacionP5_EdisonCV
         public static Form MiFormularioPrincipal = new Formularios.FrmMDIPrincipal();
 
         public static Formularios.FrmUsuariosGestion MiFormDeGestionDeUsuarios = new Formularios.FrmUsuariosGestion();
+
+        public static Formularios.FrmFacturacion MiFormFacturador = new Formularios.FrmFacturacion();
     }
 }
