@@ -70,6 +70,7 @@
             this.TxtContrasennia.TabIndex = 2;
             this.TxtContrasennia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtContrasennia.UseSystemPasswordChar = true;
+            this.TxtContrasennia.TextChanged += new System.EventHandler(this.TxtContrasennia_TextChanged);
             // 
             // LblUsuario
             // 
@@ -103,6 +104,7 @@
             this.PbVerPassword.Size = new System.Drawing.Size(30, 22);
             this.PbVerPassword.TabIndex = 5;
             this.PbVerPassword.TabStop = false;
+            this.PbVerPassword.Click += new System.EventHandler(this.PbVerPassword_Click);
             this.PbVerPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PbVerPassword_MouseDown);
             this.PbVerPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PbVerPassword_MouseUp);
             // 

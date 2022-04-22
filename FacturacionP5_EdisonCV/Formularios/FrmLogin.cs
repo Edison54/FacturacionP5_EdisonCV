@@ -109,7 +109,7 @@ namespace FacturacionP5_EdisonCV.Formularios
                 if (ObjetosGlobales.MiUsuarioGlobal != null
                     && ObjetosGlobales.MiUsuarioGlobal.IDUsuario > 0)
                 {
-                    //El susario puede iniciar al sistema
+                    //El usario puede iniciar al sistema
                     ObjetosGlobales.MiFormularioPrincipal.Show();
                     this.Hide();
 
@@ -125,6 +125,16 @@ namespace FacturacionP5_EdisonCV.Formularios
 
 
             }
+
+        }
+
+        private void PbVerPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtContrasennia_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

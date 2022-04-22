@@ -32,10 +32,10 @@ namespace Logica.models
         {
             DataTable R = new DataTable();
 
+            Conexion MyCnn = new Conexion();
 
-
-
-            //datos necesarios para R
+            R = MyCnn.EjecutarSelect("SpEmpresasListar");
+          
             return R;
 
         }

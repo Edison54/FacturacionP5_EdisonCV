@@ -27,7 +27,9 @@ namespace Logica.models
 
 
 
-            //datos necesarios
+            Conexion MyCnn = new Conexion();
+
+            R = MyCnn.EjecutarSelect("SpFacturasTipoListar");
             return R;
 
         }
