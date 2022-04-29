@@ -12,7 +12,7 @@ namespace Logica.models
         public int IDImpuesto { get; set; }
 
         public String CodigoImpuesto{ get; set; }
-        public String InpuestoNombre { get; set; }
+        public String ImpuestoNombre { get; set; }
 
         public decimal MontoImpuesto { get; set; }
 

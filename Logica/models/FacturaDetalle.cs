@@ -19,7 +19,7 @@ namespace Logica.models
         public decimal impuerstosLinea { get; set; }
         public decimal TotalLinea { get; set; }
 
-        Producto MiProducto { get; set; }
+       public Producto MiProducto { get; set; }
 
         //constructor de la clases
         public FacturaDetalle()

@@ -28,6 +28,52 @@ namespace FacturacionP5_EdisonCV.Formularios
 
         }
 
+
+        private void Totalizar()
+        {
+            if (ListaDetallesLocal != null && ListaDetallesLocal.Rows.Count >0)
+            {
+
+
+
+                decimal subt = 0;
+
+                decimal Descuentos = 0;
+                decimal Impuestos = 0;
+
+                decimal Total = 0;
+
+                foreach (DataRow item in ListaDetallesLocal.Rows)
+                {
+                    subt += Convert.ToDecimal(item["CantidadFacturada"]) * Convert.ToDecimal(item["PrecioUnitario"]);
+
+                    Descuentos += subt* Convert.ToDecimal(item["PorcentajeDescuento"]) /100 ;
+
+
+                    Impuestos = +Convert.ToDecimal(item["ImpuestosLinea"]);
+
+
+                    Total += Convert.ToDecimal(item["TotalLinea"]);
+
+
+                }
+
+                LblSubTotal.Text = string.Format("{0:N2}", subt);
+
+                LblDescuentos.Text = string.Format("{0:N2}", Descuentos);
+
+                LblImpuestos.Text = string.Format("{0:N2}", Impuestos);
+
+
+                LblTotal.Text = string.Format("{0:N2}", Total);
+
+
+
+
+            }
+
+        }
+
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             Close();
@@ -152,6 +198,79 @@ namespace FacturacionP5_EdisonCV.Formularios
         private void TxtIdCliente_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnItemAgregar_Click(object sender, EventArgs e)
+        {
+            Form FormSeleccionItem = new FrmFacturacionItemGestion();
+
+            DialogResult resp = FormSeleccionItem.ShowDialog();
+
+            if(resp == DialogResult.OK)
+            {
+
+                DgvListaItems.DataSource = ListaDetallesLocal;
+             
+
+                Totalizar();
+            }
+        }
+
+
+        private void cargarDetalleDeFactura()
+        {
+            foreach(DataRow item in ListaDetallesLocal.Rows)
+            {
+
+
+                Logica.models.FacturaDetalle detalle = new Logica.models.FacturaDetalle();
+
+                detalle.CantidadFacturada = Convert.ToDecimal(item["CantidadFacturada"]);
+                detalle.DescripcionItem = Convert.ToString(item["DescripcionItem"]);
+                detalle.impuerstosLinea = Convert.ToDecimal(item["ImpuestosLinea"]);
+                detalle.MiProducto.IDProducto = Convert.ToInt32(item["IDProducto"]);
+                detalle.PorcentajeDescuento = Convert.ToDecimal(item["PorcentajeDescuento"]);
+
+                detalle.PrecioUnitario = Convert.ToDecimal(item["PrecioUnitario"]);
+                detalle.SubtotalLinea = Convert.ToDecimal(item["SubtotalLinea"]);
+                detalle.TotalLinea = Convert.ToDecimal(item["TotalLinea"]);
+
+
+                FacturaLocal.DetalleItems.Add(detalle);
+
+
+
+            }
+
+
+        }
+        private void BtnFacturar_Click(object sender, EventArgs e)
+        {
+
+
+
+            if(ListaDetallesLocal != null && ListaDetallesLocal.Rows.Count > 0)
+            {
+
+
+                FacturaLocal.MiCliente.IDCliente = Convert.ToInt32(TxtIdCliente.Text.Trim());
+                FacturaLocal.MiTipo.IDFacturaTipo = Convert.ToInt32(CboxTipoFactura.SelectedValue);
+                FacturaLocal.MiUsuario.IDUsuario = Convert.ToInt32(CboxUsuario.SelectedValue);
+                FacturaLocal.MiEmpresa.IDEmpresa = Convert.ToInt32(CboxEmpresa.SelectedValue);
+                FacturaLocal.Fecha = DtpFechaFactura.Value.Date;
+
+                FacturaLocal.Anotaciones = TxtAnotaciones.Text.Trim();
+
+                cargarDetalleDeFactura();
+
+                if (FacturaLocal.Agregar())
+                {
+                    MessageBox.Show("FacturaGuardada Correctamente","siuuuu",MessageBoxButtons.OK);
+
+                    Limpiar();
+                }
+
+            }
         }
     }
 }
